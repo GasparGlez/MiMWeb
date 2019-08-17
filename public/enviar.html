@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>UOC Series - Enviar</title>
+<link href="css/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="img/logo_uoc_series.ico"/>
+</head>
+    
+<body>
+    <header>
+        <!--    Menu normal con logo, nav menu y buscador -> Sólo visible en pantallas >300px   -->       
+		<div class="encabezado" id="divEncabezado">
+            <div class="encabezadoLogoBuscador">
+                <div class="logo">
+                    <a href="index.html"><img class="imgLogo" src="img/logo-uoc-series_fondo_transp.png" alt="Logo UOC Series" title="Logo UOC Series"/></a>
+                </div>
+                <form class="buscador" id="buscador">		   
+                    <input type="text" placeholder="Buscar por serie o persona">
+                       <button><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            
+			<nav>
+				<ul>
+					<li><a href="index.html">Inicio</a></li>	
+					<li><a href="categorias.html">Categorías</a></li>	
+					<li><a href="detalle.html">Detalle</a></li>	
+                    <li><a href="enviar.html" class="activa">Enviar</a></li>	
+				</ul>
+			</nav>
+		</div>
+        <!--    Fin menu normal con logo, nav menu y buscador   -->
+        
+        
+        <!--    Logo y menu hamburguesa -> Sólo visible en pantallas <300px   -->
+        <div id="divMenuHamburguesa">
+                <div class="logo">
+                    <a href="index.html"><img class="imgLogo" src="img/logo-uoc-series_fondo_transp.png" alt="Logo UOC Series" title="Logo UOC Series"/></a>
+                </div>
+            <input type="checkbox" id="menuHamburguesaCB">
+            <label id="menuHamburguesaLbl" for="menuHamburguesaCB">
+                <i class="fa fa-align-justify fa-2x"></i>
+            </label>
+              <nav id="menuHamburguesa">
+                      <ul>
+                        <li><a href="index.html">Inicio</a></li>	
+                        <li><a href="categorias.html">Categorías</a></li>	
+                        <li><a href="detalle.html">Detalle</a></li>	
+                        <li><a href="enviar.html" class="activa">Enviar</a></li>	
+                        <li>
+                            <form class="buscador" id="menuHamburguesaBuscador"  >		   
+                                <input type="text" placeholder="Buscar por serie o persona">
+                                <button><i class="fa fa-search"></i></button>
+                            </form>
+                        </li>
+                      </ul>
+              </nav>
+        </div>    
+        <!--    Fin Logo y menu hamburguesa   -->
+        
+	</header>
+    
+	<main> 
+    <div id="divFondoEnviar">
+        <div id="divFondoEnviarForm">
+            <h1>Prop&oacute;n tu serie y la incluiremos en nuestra colección</h1>
+                <form class="formEnviar">    
+                <fieldset>
+                    <legend>Datos básicos</legend>
+                    <label for="titulo" class="contenidoOculto">Titulo</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Título" required="required" value="" size="30" maxlength="30"/>
+                    <label for="descripcion" class="contenidoOculto">Descripción</label>
+                    <input type="text" id="descripcion" name="descripcion" placeholder="Descripción" required="required" value="" size="70" maxlength="70"/>
+                    <br>
+                    <label for="anyo" class="contenidoOculto">Año</label>
+                    <input type="number" id="anyo" name="anyo" placeholder="Año" min="1900" max="2999" required="required" value=""/>
+                    <label for="director" class="contenidoOculto">Director</label>
+                    <input type="text" id="director" name="director" placeholder="Director" required="required" value="" size="30" maxlength="30"/>
+                    <label for="foto">Fotografía</label>
+                    <input type="file" id="foto" name="foto" required="required"/>
+                </fieldset>
+                <fieldset>
+                    <legend>Otros datos</legend>
+                    <div id="formOtros">
+                        <label for="lengua">Lenguaje original</label>
+                        <select id="lengua" name="lengua">
+                            <option value="ingles">Ingl&eacute;s</option>
+                            <option value="espanyol">Espa&ntilde;ol</option>
+                            <option value="frances">Franc&eacute;s</option>
+                            <option value="aleman">Alem&aacute;n</option>
+                            <option value="chino">Chino</option>
+                        </select>
+                        <label for="generos">G&eacute;neros</label>
+                        <select id="generos" name="generos" multiple>
+                            <option value="accion">Acci&oacute;n</option>
+                            <option value="animacion">Animaci&oacute;n</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="comedia">Comedia</option>
+                            <option value="crimen">Crimen</option>
+                            <option value="drama">Drama</option>
+                            <option value="fantasia">Fantas&iacute;a</option>
+                            <option value="familia">Familia</option>
+                            <option value="suspense">Suspense</option>
+                            <option value="scifi">Sci-Fi</option>
+                        </select>
+                        <label for="canal" class="contenidoOculto">Canal</label>
+                        <input type="text" id="canal" name="canal" placeholder="Canal" required="required" value="" size="20" maxlength="20"/>
+                        <label for="duracion">Duraci&oacute;n aprox. cap&iacute;tulo</label>
+                        <input type="number" id="duracion" name="duracion" placeholder="Mins" required="required" value="" min="20" max="120" />
+                    </div>    
+                    
+                </fieldset>
+                <fieldset>
+                    <legend>La serie en las redes</legend>
+                    <label for="webUrl">
+                    <i class="fa fa-internet-explorer"></i></label><input type="url" id="webUrl" name="webUrl" placeholder="Web oficial" required="required" value="" size="50" maxlength="50"/>
+                    <label for="imdbUrl">
+                    <i class="fa fa-imdb"></i></label><input type="url" id="imdbUrl" name="imdbUrl" placeholder="IMDB" value="" size="50" maxlength="50"/>
+                    <br>
+                    <label for="twitterUrl">
+                    <i class="fa fa-twitter"></i></label><input type="url" id="twitterUrl" name="twitterUrl" placeholder="Twitter oficial" value="" size="50" maxlength="50"/>
+                    <label for="facebookUrl">
+                    <i class="fa fa-facebook"></i></label><input type="url" id="facebookUrl" name="facebookUrl" placeholder="Facebook oficial" value="" size="50" maxlength="50"/>
+                </fieldset>
+                <fieldset> 
+                    <legend>Palabras clave</legend>
+                    <input type="text" id="palabras1" name="palabras1" placeholder="P.e. Acción" value=""/>
+                    <input type="text" id="palabras2" name="palabras2" placeholder="P.e. Brad Pitt" value=""/>
+                    <input type="text" id="palabras3" name="palabras3" placeholder="P.e. Zombies" value=""/>
+                    <input type="text" id="palabras4" name="palabras4" placeholder="P.e. Distópica" value=""/>
+                </fieldset>
+                <fieldset> 
+                    <legend>Reparto</legend>
+                    <input type="text" id="reparto1" name="reparto1" placeholder="Actor/actriz" value=""/><label for="reparto1"><i class="fa fa-search"></i></label>
+                    <input type="text" id="reparto2" name="reparto2" placeholder="Actor/actriz" value=""/><label for="reparto2"><i class="fa fa-search"></i></label>
+                    <input type="text" id="reparto3" name="reparto3" placeholder="Actor/actriz" value=""/><label for="reparto3"><i class="fa fa-search"></i></label>
+                    <input type="text" id="reparto4" name="reparto4" placeholder="Actor/actriz" value=""/><label for="reparto4"><i class="fa fa-search"></i></label>                    
+                </fieldset>
+
+                <input id="formEnviarButton" type="submit" value=" ENVIAR "/>
+                
+                </form>    
+							
+			</div>
+        </div>
+        
+    </main>
+ 
+    <footer>
+        <div class="flexContainer">
+            <ul class="flexItem_1_2_3" id="menuVertical">
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Aviso legal</a></li>
+            </ul>
+        
+            <form class="flexItem_1_2_3" id="formNewsletter">  
+                <fieldset>
+                <legend>Suscríbete a nuestra newsletter</legend>
+                    <input name="nombre" type="text" placeholder="Nombre" />   
+                    <input name="email" type="email" placeholder="Email" />
+                </fieldset>
+                <input type="submit" id="formNewsletterButton" value=" ENVIAR "/>
+            </form>     
+
+            <ul class="flexItem_1_2_3" id="divSocialMedia">
+                <!-- Iconos RRSS font awesome -->
+                <li><a href="https://www.facebook.com/" class="fa fa-facebook fa-2x" target="_blank"></a></li>
+                <li><a href="https://www.twitter.com/" class="fa fa-twitter fa-2x" target="_blank"></a></li>
+                <li><a href="https://www.youtube.com/" class="fa fa-youtube fa-2x" target="_blank"></a></li>
+                <li><a href="https://www.instagram.com/" class="fa fa-instagram fa-2x" target="_blank"></a></li>
+                <li><a href="https://www.pinterest.com/" class="fa fa-pinterest fa-2x" target="_blank"></a></li>
+            </ul>
+        </div>
+		<div class="pieAutor">
+            &copy;&nbsp;2017-2018&nbsp;- Gaspar González Vara
+        </div>
+	</footer>       
+</body>
+</html>

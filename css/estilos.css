@@ -1,0 +1,1045 @@
+@charset "UTF-8";
+
+/* Fichero estilos CSS3 - PEC 3 - Gaspar González Vara */
+
+/* Importamos fuente Ubuntu para su uso en toda la web*/
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+/*******************************************************************************************************
+******************************** DEFINICIONES DE ESTILO GENERALES EN LA WEB ****************************
+********************************************************************************************************/
+
+/* Propiedades a nivel de body*/
+body{
+    box-sizing: border-box; /* Para que por defecto los padding sean "por dentro" y no sumen dimensiones a los elementos */
+    margin: 0 auto;	/* Eliminamos márgenes superiores e inferiores y ponemos los margenes laterales en auto para centrar */
+    
+    background-color: black; /* Color de fondo para la web negro */
+    font-family: "Ubuntu", helvetica, arial, sans-serif;  /* Fuentes para la web*/
+    color: white; /* Color de letra blanco*/
+    font-size: 11pt; /* Tamaño de la fuente por defecto */
+    padding: 1em; /* para evitar que el contenido de la web esté completamente "pegado" a los bordes de la pantalla */
+}
+
+
+/* Propiedades de los h1,h2 y h3 utilizados
+Los font-size de las cabeceras serán adaptados a las diferentes resoluciones en la parte final de este fichero css donde se definen las media queries */
+
+h1{	/* Títulos principales de la web */
+	margin: 0px; /* Sin margenes */
+	font-size: 25px; /* Tamaño */
+}
+
+h2{	/* Títulos secundarios de la web */
+	margin: 0px; /* Sin margenes */
+	font-size: 20px; /* Tamaño */
+}
+
+h3{	/* Títulos terciarios/nivel 3 de la web */
+	margin: 0px; /* Sin margenes */
+	font-size: 17px; /* Tamaño */
+}
+
+/* Header ocupa el 100% del ancho (no así el contenido que estará limitado a 960px)*/
+header{
+    width: 100%;		
+	line-height: 50px;	/* Altura de línea igual a la altura del header para que el texto salga centrado en altura*/
+	height: 50px; /* Altura del header similar a la imagen proporcionada*/
+}
+
+/* Main: El contenido va con un ancho del 100% con un máximo de 960px y centrado */
+main {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 960px;}
+
+
+footer{	
+    padding-top: 1em;
+    width: 100%; /* Footer ocupa el 100% del ancho*/
+	font-size: 10pt; /*Asigno el tamaño del texto del footer*/
+}
+
+/* Eliminamos padding y márgenes de los párrafos del footer*/
+footer p{
+    padding: 0;
+	margin: 0px; 
+}
+
+img {/* Ajustamos las imágenes a sus contenedores por defecto para que se ajusten y reescalen*/
+    max-width: 100%; /* Maximo tamaño el del contenedor */
+    height: auto; /* Evitamos que con el ajuste se deforme */
+}
+
+/* Enlaces */
+/* Por defecto los enlaces irán con una opacidad del 80% y en blanco con la idea de que cuando son seleccionados
+(hover) den la "sensación" de que son activados/enfocados, resaltando al usuario */
+a { 
+    color: white; 
+    opacity: 0.8;
+    text-decoration: none;
+}
+a:hover{/*Establezco el color de letra de los enlaces cuando pasamos por encima a verde y sin linea*/
+    color: #35b728; /* Letra color verde */
+    opacity: 1; /* Sin opacidad*/
+}
+
+/* Listas */
+ol {
+    counter-reset: li; /* Iniciamos contador */
+    list-style: none; /* Borramos estilos por defecto */
+	margin: 0px; padding: 0px; /* Sin margen ni padding predefinido */
+}
+
+/* Confirguración listas ul */
+ul { 
+	list-style-type: none;
+	margin: 0px; padding: 0px;
+}
+
+ul p { /* Párrafos de las listas */ 
+    padding: 0px 0px 4px 0px; margin: 0 auto;}
+
+/* Divs y sections */
+/* Divs sin padding ni margen por defecto */
+div {padding: 0; margin: 0;}
+/* Section sin padding ni margen por defecto */
+section {padding: 0; margin: 0;}
+
+/* Alineamos a la izquierda los títulos de los div */
+div h2 {text-align: left; margin-top: 1.5em;}
+/* Alineamos a la izquierda los títulos de los section */
+section h2 {text-align: left; margin-top: 1.5em;}
+
+
+/* Botones de formularios*/
+/* Formato estñandar de los botones de formulario: Fondo verde y letra en blanco. 
+Borde redondeado. Opacidad del 70% y sin opacidad con hover*/
+[type="submit"] {
+    width: auto;
+    background:#35b728;
+    border-radius:5px;
+    border:0;
+    cursor:pointer;
+    color:white;
+    font-size:12px;
+    padding-top:5px;
+    padding-bottom:5px;
+    transition: all 0.3s;
+    margin-top: 5px;
+    font-weight:700;
+    opacity: 0.7;
+    /* Transicion para el hover, de forma que  se agrande paulatinamente */
+    transition: all .2s ease-in-out; 
+}
+
+/* Agrandamos botones un 10% con el hover y le quitamos opacidad */
+[type="submit"]:hover { 
+    opacity: 1; 
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+
+/************************************************************************
+****************************** CLASES HEADER ****************************
+*************************************************************************/
+
+/* El div contenedor del logo y el buscador será una clase con distribución flex en una fila.
+Por otra parte, esta clase sólo será visible en pantallas >300px donde se visualizará el menú normal, es decir, 
+con logo, buscador y nav menu y (#divEncabezado)*/
+.encabezadoLogoBuscador{  
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+
+}
+
+/* Esta clase logo la asigno al div que envuelve la imagen del logotipo, tanto para definir su tamaño en función
+del tamaño de pantalla como para hacer un efecto de agrandar con el hover sobre el logo */
+.logo{
+    margin: 0;
+    width: 50px;		
+    height: 50px; 
+    /* Transicion para el hover, de forma que el logo se agrande paulatinamente */
+    transition: all .2s ease-in-out; 
+}
+/* La imagen del logo, pese a ser un link, no queremos que tenga opacidad (ni el efecto opacidad 0.8->1 del resto de enlaces) */
+.logo a {opacity: 1;}
+
+/* Efecto para agrandar el logo con el hover */
+.logo:hover
+{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+/* Definimos propiedades del nav del header*/
+
+/* Ocupa el 100% del ancho y flota a la derecha del encabezado. La alineación del texto también es a la derecha */
+header nav{		
+    width: 100%;
+    text-align: right;
+	float: right; 
+}
+nav ul li {	
+	display: inline-block; /* Elementos del menú de navegación en línea*/
+}
+nav ul li a {	
+	/* Formatos especiales para los elementos del menú */
+    opacity: 1; /* Quitamos opacidad por defecto */ 
+    color: white; /* Color blanco del texto cuando no está seleccionado */
+	margin-left: 1em;
+	text-transform: uppercase; /* Mayúsculas */
+	text-decoration: none;
+}
+
+/* hover de los elementos del menú horizontal */
+nav ul li a:hover{	
+	color: #35b728; /* Cambio de color del texto al verde de "seleccionado" */
+    opacity: 0.5; /* Ponemos una opacidad del 50% pese al hover para denotar que no es la clase "activa", y que el elemento no está seleccionado como tal*/
+}
+
+/* elementos del menú principal cuando está seleccionada su opción de menú */
+nav ul li a.activa {	
+	color: #35b728; /* verde estándar para las fuentes seleccionadas por el usuario en la página */
+    font-weight: bold;/* En otro color (negro) la página actual*/
+}
+
+/*****************************************  Buscador *****************************************/
+.buscador {
+	text-align: right; /* Por defecto el buscador alineado a la derecha*/
+    border: 0px;
+    margin: 0;
+}
+
+.buscador:before,
+.buscador:after {
+	content: '';
+	display: block;	
+	height: 1px;
+	left: 50%;
+	margin: 0 auto;
+}
+
+/* Definimos un background con gradiente para dar la sensación de transición entre gris-negro*/
+.buscador:before {
+	background: #444;
+    background: linear-gradient(to left, #151515, #444, #151515);
+	background: -webkit-linear-gradient(left, #151515, #444, #151515);
+	background: -moz-linear-gradient(left, #151515, #444, #151515);
+	background: -o-linear-gradient(left, #151515, #444, #151515);
+	background: -ms-linear-gradient(left, #151515, #444, #151515);
+}
+
+.buscador:after {
+	background: #000;
+    background: linear-gradient(to left, #151515, #000, #151515);
+	background: -webkit-linear-gradient(left, #151515, #000, #151515);	
+	background: -moz-linear-gradient(left, #151515, #000, #151515);	
+	background: -o-linear-gradient(left, #151515, #000, #151515);	
+	background: -ms-linear-gradient(left, #151515, #000, #151515);		
+}
+
+/* Estilos de formulario correspondiente al buscador */
+.buscador form {
+	background: #111; /* Backgroun con gradiente de negros-grises oscuros*/
+	background: -webkit-linear-gradient(#1b1b1b, #111);
+	background: -moz-linear-gradient(#1b1b1b, #111);
+	background: -o-linear-gradient(#1b1b1b, #111);
+	background: -ms-linear-gradient(#1b1b1b, #111);
+	background: linear-gradient(#1b1b1b, #111);
+	border: 1px solid #000;
+	border-radius: 5px; /* Border redondeados */
+	box-shadow: inset 0 0 0 1px #272727; /* Sombra de la caja */ 
+	display: inline-block; /* Elementos del formulario en línea */ 
+	margin: 0 auto 0;
+}
+
+/* Caja/input de búsqueda */ 
+.buscador input {
+	background: #222; /* Background con gradiente */ 
+	background: -webkit-linear-gradient(#333, #222);	
+	background: -moz-linear-gradient(#333, #222);	
+	background: -o-linear-gradient(#333, #222);	
+	background: -ms-linear-gradient(#333, #222);	
+	background: linear-gradient(#333, #222);	
+	border: 1px solid #444;
+	border-radius: 5px 0 0 5px; /* Redondeado */
+	box-shadow: 0 2px 0 #000; /* Sombra */
+	color: #888; /* Gris del color del texto */
+	display: block;
+	float: left;
+	font-size: 11px;
+	font-weight: 400;
+	height: 25px;
+	margin: 0 auto;
+	text-shadow: 0 -1px 0 #000;
+	width: 150px;
+}
+
+/* Color placeholder */
+.buscador input::-webkit-input-placeholder {color: #888;}
+.buscador input:-moz-placeholder {color: #888;}
+
+/* Cuando tiene el foto aplicamos un gradiente al color de fondo y el efecto "glow" definido más abajo que hace
+cambiar el brillo del borde mientras mantenga el foco*/
+.buscador input:focus {
+	-webkit-animation: glow 800ms ease-out infinite alternate;
+	-moz-animation: glow 800ms ease-out infinite alternate;
+	-o-animation: glow 800ms ease-out infinite alternate;
+	-ms-animation: glow 800ms ease-out infinite alternate;
+	animation: glow 800ms ease-out infinite alternate;
+	background: #222922;
+	background: -webkit-linear-gradient(#333933, #222922);
+	background: -moz-linear-gradient(#333933, #222922);
+	background: -o-linear-gradient(#333933, #222922);
+	background: -ms-linear-gradient(#333933, #222922);
+	background: linear-gradient(#333933, #222922);
+	border-color: #35b728;
+	box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
+	color: #efe;
+	outline: none;
+}
+
+.buscador input:focus::-webkit-input-placeholder { 
+	color: #efe;
+}
+
+.buscador input:focus:-moz-placeholder {
+	color: #efe;
+}
+
+/* Estilo al botón del buscador*/
+.buscador button {
+	background: #222;
+	background: -webkit-linear-gradient(#333, #222);
+	background: -moz-linear-gradient(#333, #222);
+	background: -o-linear-gradient(#333, #222);
+	background: -ms-linear-gradient(#333, #222);
+	background: linear-gradient(#333, #222);
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-o-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+	box-sizing: content-box;
+	border: 1px solid #444;
+	border-left-color: #000;
+	border-radius: 0 5px 5px 0;
+	box-shadow: 0 2px 0 #000;
+	color: white;
+	display: block;
+	float: left;
+	font-size: 12px;
+	font-weight: 400;
+	height: 27px;
+	line-height: 27px;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	text-shadow: 0 -1px 0 #000;
+	width: 27px;
+}	
+
+/* Animación "glow" del buscador que hace una transición de colores verdes de menos a más brillantes */
+@keyframes glow {
+    0% {
+		border-color: #35b728;
+		box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
+    }	
+    100% {
+		border-color: #6f6;
+		box-shadow: 0 0 20px rgba(0,255,0,.6), inset 0 0 10px rgba(0,255,0,.4), 0 2px 0 #000;
+    }
+}
+
+/*********************************  Fin Buscador ********************************* /
+
+
+/******************************** Menú hamburguesa ******************************** /
+
+/* Aparecerá cuando el ancho de la pantalla sea <300px de forma que se visualizará un icono de 4 rayas horizontales
+(menú de hamburguesa) el cual, al ser pulsado  deplegará una capa (div) de derecha a izquierda donde verticamente 
+se encontrarán las distintas opciones de menú, incluido el buscador como última opción del menú */
+
+
+/* Capa desplegable del menú */
+#menuHamburguesa {
+    background: #444; /* Gris de fondo para resaltar con el fondo negro de la página */ 
+    /* Definimos un ancho y alto ajustados al contenido, de forma que no ocupe más espacio del necesario */
+    width: 15em; /* Ancho de 15em*/
+    height: 17.5em; /* Alto de 17.5 em*/
+    border: 1px solid #444;
+	border-radius: 5px 0 0 5px; /* Redondeado */
+    position: fixed;
+    right: 0;
+    
+    /*
+    Usamos para la transición de la animación (transition-timing-function) la función cubic-bezier () (que define una curva de Bezier cúbica) la cual necesita 4 coordenadas (cubic-bezier(x1, y1, x2, y2))
+    x1 es la coordenada x del punto de control p1
+    y1 es la coordenada y del punto de control p1
+    x2 es la coordenada x del punto de control p2
+    y2 es la coordenada y del punto de control p2
+    De forma que el menú mediante esa función realizará una transición horizontal de una capa de fondo gris de 15em con la "aceleración" que nos da la fución cubic-bezier que se superpone al contenido
+    */
+    transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1); 
+    transform: translateX(15em);
+    transition: 0.5s;
+    top: 0;
+    z-index: 800;
+
+}
+
+/* Articulamos el menú como un checkbox no visible, donde su label visible será un carácter Font awesome (<i class="fa fa-align-justify fa-2x"></i>) que representa 4 rayas horizontales */
+#menuHamburguesaCB {
+    display: none;
+}
+#menuHamburguesaCB:checked ~ #menuHamburguesa {
+    transform: translateX(0rem);
+}
+
+/* label que hace las veces de "icono" del menú (4 rayas: <i class="fa fa-align-justify fa-2x"></i>)
+la colocamos en la esquina superior derecha de forma absoluta
+*/ 
+#menuHamburguesaLbl {
+    position: absolute;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    right: 1rem;
+    top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+/* Propiedades del elemento <i> del contenido de la label*/
+#menuHamburguesaLbl > i {
+    height: 2px;
+    transition: 0.5s;
+    z-index: 999;
+}
+
+/* Hacemos que el icono del menú de hamburguesa se gire 30º al pulsar el icono/label (checked)*/
+#menuHamburguesaCB:checked ~ #menuHamburguesaLbl > i {
+    transform: translateY(10px) rotate(-30deg); 
+}
+
+/* Elementos del menú en vertical con flex y un margen de 1em*/
+#divMenuHamburguesa nav ul li {
+    margin-left: 1em;
+    display: flex;
+}
+
+/*********************************  Fin menú hamburguesa ********************************* /
+
+
+/*********************************************************************
+***************************** CLASES FOOTER **************************
+**********************************************************************/
+
+/* Div del "menu" vertical de opciones izquierdo */
+#menuVertical {margin: 0 auto; padding:0; line-height: 1.5em; }
+
+/* Estilos de los enlaces display: block y sin margenes ni padding, centrados */
+#menuVertical a {
+    margin: 0 auto; padding: 0;
+    display: block;
+    text-decoration: none;
+    opacity: 0.7;
+}
+#menuVertical a:hover {
+    color: #35b728;
+    font-weight: bold;
+    opacity: 1;
+}
+
+/* Form Newsletter*/
+/* Le asignamos un ancho del 55%, sin márgenes y centrado*/
+#formNewsletter{
+    width: 55%;
+    margin: 0 auto;
+}
+/* Fielset sin bordes */
+#formNewsletter fieldset {
+    border:0;
+}
+/* Leyenda con un padding de 1em */
+#formNewsletter legend{
+    padding: 1em; 
+}
+/* Las cajas input de entrada con fondo transparente, borde y texto blancos */
+#formNewsletter input[type="text"],
+#formNewsletter input[type="email"]{
+    color: white;
+    font-weight:500;
+    background: transparent;
+    font-size: 1em;
+    border-radius: 5px;
+    line-height: 12px;
+    border:1px solid white;
+    padding: 4px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    outline:0;
+}
+
+/* Botón con fondo y borde verde*/
+#formNewsletter input[type="submit"] {background: #35b728; border:1px solid #35b728; }
+
+/* Con el focus ponemos el borde de las cajas en el verde de la web para resaltar*/
+#formNewsletter input:focus { border:2px solid #35b728; }
+
+/* Div derecho con los iconos de redes sociales */
+
+#divSocialMedia{
+    margin: 0 auto; padding: 0; 
+    height: 2em; line-height: 2em; 
+    width: 100%; 
+    display: inline-flex; /* Disposición como flex en línea */
+    justify-content: center; /* Elementos centrados */
+}
+/* Asignamos a los inconos de las diferentes Redes Sociales (que son elementos Font Awesome)
+el tamaño de la fuente 2em y una distribución del 20% del ancho a cada uno dentro del contenedor 
+flex (flex-basis: 20%) */
+.fa {
+    margin: 0.20em; /* Margen para separar cada icono y que no se "pisen" al crecer */
+    font-size: 2em;
+    text-decoration: none;
+    flex-basis: 20%; /* Al ser 5 elementos : 20% */
+    opacity: 0.5; /* Opacidad de 0.5 para el efecto con hover */
+    transition: all .2s ease-in-out;  /* Transición para el aumento de tamaño del hover */
+}
+/* Con hover hacemos que los iconos de RRSS pierdan la opacidad y se reescalen al 130% para dar énfasis al 
+elemento que está siendo marcado */
+.fa:hover {
+    opacity: 1; 
+    color: white; 
+    /* Aumento de tamaño con hover */ 
+    -webkit-transform: scale(1.3); 
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+/* Formato de los iconos FA de Redes Sociales. Les ponemos el fondo con el color que les corresponde visualmente */
+.fa-facebook {background: #3B5998; color: white; }
+.fa-twitter { background: #55ACEE; color: white; }
+.fa-youtube { background: #bb0000; color: white; }
+.fa-instagram { background: #125688; color: white; }
+.fa-pinterest { background: #cb2027; color: white; }
+
+/* Pie con texto autor */
+.pieAutor { font-weight: 400; margin-top: 1em; text-align: center; height: 2em;}
+
+/*********************************************************************
+****************************** CLASES MAIN ***************************
+**********************************************************************/
+
+/* Elementos FLEX */
+
+/* Esta clase flexContainer va a ser el contenedor más usado para la distibución del contenido por su 
+versatilidad, ya que nos permite facilitar tanto redistribuir los elementos que contiene con diferentes ancho de pantalla (flexbasis=X%) como jugar con una alineación horizontañ/vertical homogénea de los elementos contenidos*/
+.flexContainer { 
+    /* Contenido con un ancho máximo de 960 px pero "reservando el 100% del ancho */ 
+    max-width: 960px;
+    width: 100%; 
+    margin: 0 auto;
+    display: flex;  
+    flex-flow: row wrap;
+    text-align: center;
+    align-content: center;
+    align-items:center; /* Elementos centrados verticalmente */
+}
+
+/* Asignamos padding y distribución por defecto a sus elementos:
+Padding:0 y flex con un grow de 1 (el espacio restante en el contenedor se distribuirá en igual proporción para todos los hijos/elementos contenidos), y flex-basis (tamaño predeterminado de un elemento antes de que se distribuya el espacio restante) del 100%) */
+.flexContainer > * {
+  padding: 0px;
+  flex: 1 100%;
+}
+
+/* Para los elementos flexItem contenidos en flexContainer definimos box-sizing: border-box; para que los padding no se salgan del contenedor, sin márgen y un padding de 2px.*/
+[class^='flexItem_'] { box-sizing: border-box; margin: 0; padding: 2px;}
+
+/* Fin Elementos FLEX  */
+
+/* Elementos inline-block */
+.inlineBlockFloatLeftContainer { 
+    /* Definimos box-sizing: border-box; para que los padding no se salgan del contenedor, sin márgen y un padding de 2px*/
+    box-sizing: border-box; margin: 0; padding: 2px;
+    display:inline-block;  
+    float:left;
+    text-align: center;
+    align-content: center;
+    align-items:center;
+}
+
+/*
+Clase que "oculta" el contenido del elemento, aunque éste sigue recibiendo el foco mediante el tabulador (p.e. con "display:hidden" no sería posible). Para lograr ésto se aplica un recorte (o clip) y luego con "position:absolute" los eliminamos del flujo del documento sin ocupar espacio
+*/
+.contenidoOculto {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+/***************** Elementos Página INDEX.HTML *****************/
+
+/* div IndexContenedorListasDestacadasUsuarios : Contenedor general inferior para series destacadas y lista de usuarios*/
+#divIndexContenedorListasDestacadasUsuarios {width: 100%; margin: 0 auto; padding: 0;}
+/* div contenedor para la lista de usuarios */
+#divIndexUsuariosDestacados {margin: 0 auto; padding-left: 1em;}
+
+
+/* div listaDestacadaContenedor: Flex con dos elementos, la imagen a la izquierda y el texto a la derecha, ambos con 50% anchura para mostrar cada serie en el contenedor inferior */
+.listaDestacadaContenedor {
+    display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; padding: 4px;  
+    }
+.listaDestacadaContenedor img {max-width: 50%; margin-right: 4px;}
+
+
+/* Lista de usuarios destacados: Lista ordenada. Sustituimos los números o bullets por iconos que representan un usuario */
+.listaulBullets {
+    list-style: none;
+    padding-left: 1.0em;
+    text-align: left;
+    padding-left: 2em;
+    word-wrap: break-word;
+    
+}
+.listaulBullets  li {
+    margin: .5rem 0;
+  }
+.listaulBullets li:before {
+    font-family:FontAwesome;
+    content: '\f007'; /* icono que representa un usuario */ 
+    margin: 0 .5em .1em -.85em;
+  }
+
+
+/**************** Elementos página CATEGORÍAS.HTML ***************/
+/*"Otras secciones":  Para las cabeceras de las secciones metemos un margen superior y alineamos los dos tipos de tamaños de titulos para alinearlos horizontalmente*/
+[id^='spanCategorias'] h2 { text-align: left; margin-top: 1.5em;}
+[id^='spanCategorias'] h3 {text-align: right; margin-top: -1.5em;}
+
+
+/***************** Elementos página DETALLE.HTML *****************/
+
+/* Div con el contenido de la serie destacada */
+#divSerieDetalle{margin-top: 4em; max-width: 960px;}
+
+/* Div con el fondo de imagen de la serie destacada */
+#divDetalleImagenFondo
+{
+    padding: 0; margin: 0 auto;
+    display: block;
+    
+    /* Establecemos el div ocupando todo el ancho de la pantalla, independientemente del ancho del contenedor,
+    main, que está limitado a 960px */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+#divDetalleImagenFondo:after {
+    content: "";    
+    opacity: 0.25; /* Opacidad de la imagen de fondo para que permita una correcta visualización del contenido */
+    top: 0; left: 0; bottom: 0; right: 0; /* Colocación absoluta */
+    position: absolute;
+    z-index: -1;   
+    /* Fijamos imagen de fondo como cover */
+    background: url(../img/detalle/detalle-fondo.jpg) no-repeat fixed center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* Alineamos a la izquierda los títulos de los flexItem_1_2_2 */
+.flexItem_1_2_2 {text-align: left; margin-top: 1.5em;}
+
+/* Formato de "Botones" de agregar a lista, favorito, puntuación */
+[id^='detalleBoton'] { 
+    margin: 0.5em;
+    border-radius: 50%; /* Redondos */
+    border: 2px solid white;
+    padding:0.4em;}
+/* Color verde para el borde y el contenido con hover */
+[id^='detalleBoton']:hover { 
+    border-color: #35b728;
+    color: #35b728;
+}
+
+/* Puntuación mediante estrellas*/
+/* Span "rating" con propiedades unicode-bidi + direction para establecer que el texto (estrella fondo transparente) debe anularse/sutituirse (por una estrella amarilla) y avance/dirección del texto rtl ("right-to-left") para que el efecto sea de puntuación. Fijamos "display: inline-block" para que las 5 estrellas permanezcan juntas */
+.rating {unicode-bidi:bidi-override;direction:rtl;font-size:12pt;display: inline-block;}
+/* Las estrellas del contenido serán caracteres Font Awesome */
+.rating span.estrella{font-family:FontAwesome;font-weight:normal;font-style:normal;display:inline-block; padding: 0;}
+.rating span.estrella:hover{cursor:pointer}
+.rating span.estrella:before{content:"\f006";padding-right:5px;color:#777}
+/* con el hover de los span hacemos la sustitución de la fuente de la estrella */
+.rating span.estrella:hover:before,.rating span.estrella:hover~span.estrella:before{content:"\f005";color:#35b728;}
+
+/*
+Contenedores de la parte inferior a la imagen de fondo (imágenes de la serie, lista de actores e información de la serie ) */
+
+/* Contenedor general inferior : Contiene todos el contenido que verticalmente va debajo de la imagen de fondo de la serie, ocupando el 100% del ancho */ 
+div#divDetalleInferiorContenedor {margin: 0 auto; width: 100%; }
+
+/* Contenedor derecha: Lista de datos de la serie*/
+div#divDetalleInferiorDerecha {width: 25%; box-sizing: border-box; padding-left: 1em; float: right; }
+/* Contenedor izquierda arriba : Lista de imágenes */ 
+div#divDetalleInferiorIzquierdaArriba {width: 75%; }
+/* Contenedor izquierda abajo : Lista de actores */ 
+div#divDetalleInferiorIzquierdaAbajo {width: 50%; }
+
+/* Lista Información serie: A cada li le asignamos un icono FA */
+ul#ulDetalleInformacion li:before { content: '\f008'; }/* icono que representa una película para cada elemento de la lista*/ 
+
+/* Ul de la lista de actores: Damos "formato de tabla" a la lista de actores, de forma que simulamos una tabla con los li, haciendo con estos contenedores flexbox que contienen 4 elementos en dispositivos grandes y dos por línea en pantallas pequeñas (flexItem_2_4_4) */
+ul#ulDetalleReparto {margin-top: 1em;}  
+ul#ulDetalleReparto li {border: 1px; border-bottom-style:solid ;border-bottom-color: white;}  
+ul#ulDetalleReparto li span {text-align: left; }  
+ul#ulDetalleReparto li span img {height: 4em; /* limitamos tamaño imagen del actor */}     
+
+/**************** Elementos página ENVIAR.HTML ***************/
+
+/* div contenedor de la imagen de fondo y del formulario */
+#divFondoEnviar{margin-top: 4em; max-width: 960px;}
+
+/* Div con el fondo de imagen del formulario */
+#divFondoEnviarForm
+{
+    padding: 0; margin: 0 auto;
+    display: block;
+    /* Establecemos el div ocupando todo el ancho de la pantalla, independientemente del ancho del contenedor,
+    main, que está limitado a 960px */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 5vw;
+}
+#divFondoEnviarForm:after {
+    content: "";    
+    opacity: 0.30; /* Opacidad */
+    top: 0; left: 0; bottom: 0; right: 0; /* Colocación absoluta */
+    position: absolute;
+    z-index: -1;   
+    /* Fijamos imagen de fondo como cover */
+    background: url(../img/enviar/bb1680.jpg) no-repeat fixed center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#divFondoEnviarForm h1 {text-align: center; padding-top: 1em;}
+
+/* Formulario ocupando el 75% del ancho de pantalla y con distribución flex de los elementos para su 
+distribución en línea "flex-flow: row wrap" y con el contenido centrado */
+.formEnviar{
+    width: 75%; 
+    margin: 0 auto;
+    display: flex;  
+    flex-flow: row wrap;
+    text-align: center;
+    align-content: center;
+    align-items:center; /* Elementos centrados verticalmente */
+
+}
+
+/* Para los elementos del formulario definimos box-sizing: border-box; para que los padding no se salgan del contenedor, sin márgen y un padding de 2px.*/
+.formEnviar > * {
+    box-sizing: border-box; 
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+    margin: 0 auto; padding: 2px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+/* Definimos fieldset como "flex: 1 100%": flex con un grow de 1 (el espacio restante en el contenedor se distribuirá en igual proporción para todos los hijos/elementos contenidos), y flex-basis (tamaño predeterminado de un elemento antes de que se distribuya el espacio restante) del 100%) */
+
+.formEnviar fieldset{
+    flex: 1 100%;
+    margin: 2em auto; /* Márgenes de 2e centrando */
+    border-radius: 20px; /* Redondeamos bordes */
+	padding: 0;
+    border: 0.5px solid;
+    border-color: grey; /* Borde gris */
+    
+}
+
+/* Leyendas 14pt */
+.formEnviar fieldset legend {
+	font-size: 13pt;
+    opacity: 0.8;
+}
+
+/* Leyendas sin opacidad con hover */
+.formEnviar fieldset legend:hover {
+    opacity: 1;
+}
+
+/* Labels en línea con sus input */
+.formEnviar label {
+	display: inline-block;
+	margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+/* Para alinear los elementos de "Otros Datos" los metemos en un div flexbox */
+#formOtros {
+    /* Contenido con un ancho máximo de 960 px pero "reservando el 100% del ancho */ 
+    width: 100%; 
+    margin: 0 auto;
+    display: flex;  
+    flex-flow: row wrap;
+    text-align: center;
+    align-content: center;
+    align-items:center; /* Elementos centrados verticalmente */
+}
+
+
+/* Definimos el formato de los inputs del formulario*/
+.formEnviar input[type="text"],
+.formEnviar input[type="date"],
+.formEnviar input[type="number"],
+.formEnviar input[type="url"],
+.formEnviar input[type="file"],
+.formEnviar select {
+    
+    font-family: 'Ubuntu', helvetica, arial, sans-serif;  /* Fuente para la web*/
+    font-size: 10pt;
+    color:white;
+    font-weight:500;
+    border-radius: 5px; /* Redondeamos las cajas */
+    background-color: transparent;
+    border:1px solid white;
+    transition: all .2s ease-in-out;  /* Transición para el aumento de tamaño del hover */
+    outline:0;
+    margin: 1em;
+}
+
+/* Con hover reescalamos y ponemos el borde en verde */
+.formEnviar input[type="text"]:hover,
+.formEnviar input[type="date"]:hover,
+.formEnviar input[type="number"]:hover,
+.formEnviar input[type="url"]:hover,
+.formEnviar input[type="file"]:hover,
+.formEnviar input[type="submit"]:hover,
+.formEnviar select:hover {
+
+    opacity: 1;
+    /* Aumento de tamaño con hover */ 
+    -webkit-transform: scale(1.1); 
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    
+    border:2px solid #35b728; 
+}
+
+/* Formato del botón del formulario */
+.formEnviar input[type="submit"]{
+    width: auto;
+    font-size: 14pt;
+	
+}
+.formEnviar input[type="submit"]:hover{
+    -webkit-transform: scale(1.2); 
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& COMPORTAMIENTO RESPONSIVE &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+/* 
+Elementos FLEX
+Los elementos tipo flexItem en el contenedor flex (flexContainer) los agrupamos en lotes de máximo tres o cuatro elementos en pantallas grandes, en función de la definición en el wireframe, creando las clases que a continuación 
+se detallan, con la distibución que se indica:
+.flexItem_1_2_2 : 1 elemento en pantalla pequeña, 2 elementos en pantalla mediana y 2 elementos en pantalla grande.
+.flexItem_1_2_3 : 1 elemento en pantalla pequeña, 2 elementos en pantalla mediana y 3 elementos en pantalla grande.
+.flexItem_1_2_4 : 1 elemento en pantalla pequeña, 2 elementos en pantalla mediana y 4 elementos en pantalla grande.
+.flexItem_1_3_6 : 1 elemento en pantalla pequeña, 3 elementos en pantalla mediana y 6 elementos en pantalla grande.
+.flexItem_3_3_6 : 3 elementos en pantalla pequeña, 3 elementos en pantalla mediana y 6 elementos en pantalla grande.
+.flexItem_2_4_4 : 3 elementos en pantalla pequeña, 3 elementos en pantalla mediana y 6 elementos en pantalla grande.
+
+Esto nos permite disponer de clases "estándares" para la distribución del contenido en función del tamaño de la pantalla
+
+Por otro lado, el formato del menú superior (completo y dispuesto horizontalmente (logo+buscador+menú) está sólo visible en resoluciones medianas y grandes, ocultándose para móviles, donde únicamente estará visible el menú de hamburguesa.
+
+A continuación se detalla el comportamiento responsive -para cualquier dispositivo-, discriminando tres tipos de pantalla: pequeña (desde 300px hasta 599px), mediana (desde 600px hasta 959px) y grande (A partir de 960px)
+*/
+
+
+/*************************************************************** 
+*********************** MIN-WITH>=300px ************************
+/***************************************************************/ 
+
+@media all and (min-width: 300px) and (max-width: 599px){
+    
+    /* Adaptamos fuentes headers al dispositivo*/
+    h1{ font-size: 25px;}
+    h2{ font-size: 18px;}
+    h3{ font-size: 15px;}
+    
+    /* Logo a un 100% del definido por defecto y sin opacidad*/
+    .imgLogo { max-width: 100%; opacity: 1;}
+
+    /* 1 columna */
+    .flexItem_1_2_3 { flex-basis: 100%; /* el 100% de la fila -> 1 elemento */}
+    
+    /* 1 columna */
+    .flexItem_1_2_2 { flex-basis: 100%; /* el 100% de la fila -> 1 elemento */}
+    
+    /*  1 columna*/
+    .flexItem_1_2_4 { flex-basis: 100%; /* el 100% de la fila -> 1 elemento */ }
+    
+    /* 1 columna*/
+    .flexItem_1_3_6 { flex-basis: 100%; /* el 100% de la fila -> 1 elemento */ }
+    
+    /* 2 columnas*/
+    .flexItem_2_5_5 { flex-basis: 50%; /* el 50% de la fila -> 2 elementos*/ }
+    
+    /* 2 columnas */
+    .flexItem_2_4_4 { flex-basis: 50%; /* el 100% de la fila -> 2 elementos */ }
+    
+    /* 3 columnas*/
+    .flexItem_3_3_6 { flex-basis: 33%; /* el 33% de la fila -> 3 elementos*/ }
+    
+    /**** Página de detalle ****/
+    /*Ajustamos margen del div de la parte superior en pantallas pequeñas para no "apurar"
+    por la izquierda */
+    #divDetalleImagenFondo {margin-left: -47vw; margin-right: -53vw;}
+    /* Con pantallas muy pequeñas ajustamos anchos de estos dos divs al 50% para conseguir que la
+    lista de detalles sea legible */ 
+    div#divDetalleInferiorIzquierdaArriba {width: 50%; } /* Lista imágenes */
+    div#divDetalleInferiorDerecha {width: 50%; } /* Lista detalles serie */
+    /*Ocultamos en la lista de 6 imágenes de la serie, las 3 últimas en móviles (max-width: 599px) */
+    [id^='liDetalleImagenes_f2'] {display: none;}
+    
+    
+    /* liCategoriasTendenciasinlineBlockFloatLeftContainer en pantalla pequeña: 1 columna -> 100% para cada elemento*/
+    [id^='liCategoriasTendenciasinlineBlockFloatLeftContainer'] { width: 100%; }
+        
+    /* Mostramos div del menú de hamburguesa y ocultamos el general (logo+buscador+menu)*/
+    #divMenuHamburguesa {display: inherit;}
+    #divEncabezado {display: none}
+    
+    /* En pantallas pequeñas fijamos a 20em el máximo de los inputs de los forms para evitar scrolls horizontales */
+    .formEnviar input {max-width: 20em;}
+}
+
+
+/************************************************************** 
+*********************** MIN-WITH>=600px ***********************
+***************************************************************/
+
+@media all and (min-width: 600px) and (max-width: 959px){
+    
+    /* Adaptamos fuentes headers al dispositivo*/
+    h1{ font-size: 30px;}
+    h2{ font-size: 18px;}
+    h3{ font-size: 15px;}
+    
+    
+    /* Logo a un 150% y sin opacidad*/
+    .imgLogo {max-width: 150%; opacity: 1;}
+    
+    /* 2 columnas*/
+    .flexItem_1_2_3 { flex-basis: 50%; /* el 50% de la fila -> 2 elementos */ }
+    
+    /* 2 columnas*/
+    .flexItem_1_2_2 { flex-basis: 50%; /* el 30% de la fila -> 2 elementos */ }
+
+    /* 2 columnas*/
+    .flexItem_1_2_4 { flex-basis: 50%; /* el 50% de la fila -> 2 elementos*/ }
+
+    /* 3 columnas*/
+    .flexItem_1_3_6 { flex-basis: 33%; /* el 33% de la fila -> 3 elementos*/ }
+    
+    /* 4 columnas */
+    .flexItem_2_4_4 { flex-basis: 25%; /* el 25% de la fila -> 4 elementos */ }
+    
+    /* 5 columnas*/
+    .flexItem_2_5_5 { flex-basis: 20%; /* el 20% de la fila -> 5 elementos*/ }
+    
+    /* 6 columnas*/
+    .flexItem_3_3_6 { flex-basis: 33%; /* el 33% de la fila -> 3 elementos*/ }
+    
+    /* liCategoriasTendenciasinlineBlockFloatLeftContainer en pantalla mediana: 3 columnas -> 33% para cada elemento*/
+    [id^='liCategoriasTendenciasinlineBlockFloatLeftContainer'] { width: 33%; }
+    
+    /* Ocultamos div del menú de hamburguesa */
+    #divMenuHamburguesa {display: none;}
+
+}
+
+/*************************************************************** 
+*********************** MIN-WITH>=960px ************************
+***************************************************************/ 
+
+@media all and (min-width: 960px) {
+    
+    /* Adaptamos fuentes headers al dispositivo*/
+    h1{ font-size: 35px;}
+    h2{ font-size: 20px;}
+    h3{ font-size: 17px;}
+    
+    /* Logo a un 200% dado que la pantalla lo permite*/
+    .imgLogo {max-width: 200%; opacity: 1;}
+    
+    /* 2 columnas*/
+    .flexItem_1_2_2 { flex-basis: 50%; /* el 50% de la fila -> 2 elementos */ }
+    
+    /*  3 columnas*/
+    .flexItem_1_2_3 { flex-basis: 33%; /* el 33% de la fila -> 3 elementos*/ }
+
+    /*  4 columnas*/
+    .flexItem_1_2_4 { flex-basis: 25%; /* el 25% de la fila -> 4 elementos*/ }
+    
+    /* 4 columnas */
+    .flexItem_2_4_4 { flex-basis: 25%; /* el 25% de la fila -> 4 elementos */ }
+    
+    
+    /*  6 columnas*/
+    .flexItem_1_3_6 { flex-basis: 16.66%; /* el 16.66% de la fila -> 6 elementos*/ }
+    
+
+    /* 5 columnas*/
+    .flexItem_2_5_5 { flex-basis: 20%; /* el 20% de la fila -> 5 elementos*/ }
+    
+    /* 6 columnas*/
+    .flexItem_3_3_6 { flex-basis: 16.66%; /* el 16.66% de la fila -> 6 elementos*/ }
+    
+    /*Listas de películas con resoluciones >=960 px*/
+    #divIndexContenedorSupListasDestacados > li {flex: 0 0 25%; /* el 25% por defecto cada elemento para alojar al primero y al último que ocupan el 50% de la línea cada uno*/}
+    #divIndexContenedorSupListasDestacados > li:first-child {flex: 2 0 50%; /* el 50% el primero */}
+    #divIndexContenedorSupListasDestacados > li:last-child {flex: 2 0 50%; /* el 50% el último */}    
+
+    
+    /* liCategoriasTendenciasinlineBlockFloatLeftContainer en pantalla grande: 6 columnas -> 16.66% para cada elemento*/
+    [id^='liCategoriasTendenciasinlineBlockFloatLeftContainer'] { width: 16.66%; }
+    
+    /* Ocultamos div del menú de hamburguesa */
+    #divMenuHamburguesa {display: none;}
+    
+}
+

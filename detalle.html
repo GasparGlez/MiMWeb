@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>UOC Series - Detalle</title>
+<link href="css/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="img/logo_uoc_series.ico"/>
+</head>
+    
+<body>
+    <header>
+        <!--    Menú normal con logo, nav menu y buscador -> Sólo visible en pantallas >300px   -->       
+		<div class="encabezado" id="divEncabezado">
+            <div class="encabezadoLogoBuscador">
+                <div class="logo">
+                    <a href="index.html"><img class="imgLogo" src="img/logo-uoc-series_fondo_transp.png" alt="Logo UOC Series" title="Logo UOC Series"/></a>
+                </div>
+                <form class="buscador" id="buscador">		   
+                    <input type="text" placeholder="Buscar por serie o persona">
+                       <button><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            
+			<nav>
+				<ul>
+					<li><a href="index.html">Inicio</a></li>	
+					<li><a href="categorias.html">Categorías</a></li>	
+					<li><a href="detalle.html" class="activa">Detalle</a></li>	
+                    <li><a href="enviar.html">Enviar</a></li>	
+				</ul>
+			</nav>
+		</div>
+        <!--    Fin menu normal con logo, nav menu y buscador   -->
+        
+        
+        <!--    Logo y menu hamburguesa -> Sólo visible en pantallas <300px   -->
+        <div id="divMenuHamburguesa">
+                <div class="logo">
+                    <a href="index.html"><img class="imgLogo" src="img/logo-uoc-series_fondo_transp.png" alt="Logo UOC Series" title="Logo UOC Series"/></a>
+                </div>
+            <input type="checkbox" id="menuHamburguesaCB">
+            <label id="menuHamburguesaLbl" for="menuHamburguesaCB">
+                <i class="fa fa-align-justify fa-2x"></i>
+            </label>
+              <nav id="menuHamburguesa">
+                      <ul>
+                        <li><a href="index.html">Inicio</a></li>	
+                        <li><a href="categorias.html">Categorías</a></li>	
+                        <li><a href="detalle.html" class="activa">Detalle</a></li>	
+                        <li><a href="enviar.html">Enviar</a></li>	
+                        <li>
+                            <form class="buscador" id="menuHamburguesaBuscador"  >		   
+                                <input type="text" placeholder="Buscar por serie o persona">
+                                <button><i class="fa fa-search"></i></button>
+                            </form>
+                        </li>
+                      </ul>
+              </nav>
+        </div>    
+        <!--    Fin Logo y menu hamburguesa   -->
+        
+	</header>
+    
+	<main> 
+        <!--  Bloque superior imagen fondo 100% ancho pantalla   -->
+        <div id="divDetalleImagenFondo">
+            <div class="flexContainer" id="divSerieDetalle">
+                <div class="flexItem_1_2_2">
+                    <img src="img/detalle/detalle-principal.jpg" alt="The Big Bang Theory" title="The Big Bang Theory"/>
+                </div>
+                <section class="flexItem_1_2_2">
+                    <h1>The Big Bang Theory (2007)</h1>
+                    <a href="#"><i class="fa fa-check fa-2x" id="detalleBotonAgregarALista" title="Agregar a la lista"></i></a>
+                    <a href="#"><i class="fa fa-heart fa-2x" id="detalleBotonMarcarFavorito" title="Marcar como favorito"></i></a>
+                    <a href="#"><i class="fa fa-star-half-o fa-2x" id="detalleBotonPuntuacionUsuarios" title="Puntuación de los usuarios"></i></a>
+                    <!--    Puntuación usando estrellas FA   -->
+                    <span class="rating" title="Tu puntuación">
+                        <span class="estrella"></span>
+                        <span class="estrella"></span>
+                        <span class="estrella"></span>
+                        <span class="estrella"></span>
+                        <span class="estrella"></span>
+                    </span>
+                    
+                    <p>The Big Bang Theory se centra en la vida de cinco personajes que residen en Pasadena, California: los compañeros de piso Leonard Hofstadter y Sheldon Cooper; su vecina Penny, una guapa camarera que aspira a triunfar como actriz; y los amigos y compañeros de trabajo de Leonard y Sheldon (igual de friquis y socialmente inadaptados que ellos), el ingeniero mecánico Howard Wolowitz y el astrofísico Raj Koothrappali. El grado de "friquismo" y el intelecto de los cuatro chicos choca de forma cómica con las habilidades sociales y el sentido común de Penny.<p>
+                </section>    
+            </div>
+        </div>    
+        <!--  Bloque inferior con imágenes, info de la serie y actores  -->
+        <div id="divDetalleInferiorContenedor">
+            <div id="divDetalleInferiorDerecha">
+                <h2>Información</h2>
+                <ul class="listaulBullets" id="ulDetalleInformacion">
+                    <li>Cadena: CBS</li>
+                    <li>Lenguaje original: English</li>
+                    <li>País: USA</li>
+                    <li>Duración: 22m</li>
+                    <li>Web:&nbsp;<a href="#">http://www.cbs.com/shows/big_bang_theory/</a></li>
+                    <li>Redes sociales: <a href="#"><i class="fa fa-facebook"></i></a>&nbsp;<a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li>Géneros: Comedia</li>
+                    <li>Palabras clave: nerd, geek, Friends, scientist, science, sitcom</li>
+                </ul>                
+                
+            </div>
+            <div id="divDetalleInferiorIzquierdaArriba">
+                <h2>Imágenes</h2>
+                <ul class="flexContainer">
+                   <li class="flexItem_1_3_6" id="liDetalleImagenes_f1_1">
+                        <a href="#">              
+                            <img src="img/detalle/imagen1.jpg" alt="imagen1"/>
+                        </a>    
+                    </li>
+                    <li class="flexItem_1_3_6" id="liDetalleImagenes_f1_2">
+                        <a href="#">              
+                            <img src="img/detalle/imagen2.jpg" alt="imagen2"/>
+                        </a>    
+                    </li>
+                    <li class="flexItem_1_3_6" id="liDetalleImagenes_f1_3">
+                        <a href="#">              
+                            <img src="img/detalle/imagen3.jpg" alt="imagen3"/>
+                        </a>    
+                    </li>
+                    <li class="flexItem_1_3_6" id="liDetalleImagenes_f2_1">
+                        <a href="#">              
+                            <img src="img/detalle/imagen4.jpg" alt="imagen4"/>
+                        </a>    
+                    </li>
+                    <li class="flexItem_1_3_6" id="liDetalleImagenes_f2_2">
+                        <a href="#">              
+                            <img src="img/detalle/imagen5.jpg" alt="imagen5"/>
+                        </a>    
+                    </li>
+                    <li class="flexItem_1_3_6" id="liDetalleImagenes_f2_3">
+                        <a href="#">              
+                            <img src="img/detalle/imagen6.jpg" alt="imagen6"/>
+                        </a>    
+                    </li>
+                </ul>
+                
+            </div>
+            <div id="divDetalleInferiorIzquierdaAbajo">
+                
+                 <ul id="ulDetalleReparto">
+                    <li class="flexContainer">        
+                        <span class="flexItem_2_4_4"><img src="img/detalle/leonard.jpg" alt="leonard.jpg"/></span>
+                        <span class="flexItem_2_4_4">Johnny Galecki</span>
+                        <span class="flexItem_2_4_4">Leonard Hofstadter</span>
+                        <span class="flexItem_2_4_4">243 episodios</span>
+                    </li>
+                    <li class="flexContainer">        
+                        <span class="flexItem_2_4_4"><img src="img/detalle/sheldon.jpg" alt="sheldon.jpg"/></span>
+                        <span class="flexItem_2_4_4">Jim Parsons</span>
+                        <span class="flexItem_2_4_4">Sheldon Cooper</span>
+                        <span class="flexItem_2_4_4">243 episodios</span>
+                    </li>     
+                    <li class="flexContainer">        
+                        <span class="flexItem_2_4_4"><img src="img/detalle/penny.jpg" alt="penny.jpg"/></span>
+                        <span class="flexItem_2_4_4">Kaley Cuoco</span>
+                        <span class="flexItem_2_4_4">Penny</span>
+                        <span class="flexItem_2_4_4">242 episodios</span>
+                    </li>  
+                    <li class="flexContainer">        
+                        <span class="flexItem_2_4_4"><img src="img/detalle/howard.jpg" alt="howard.jpg"/></span>
+                        <span class="flexItem_2_4_4">Simon Helberg</span>
+                        <span class="flexItem_2_4_4">Howard Wolowitz</span>
+                        <span class="flexItem_2_4_4">242 episodios</span>
+                    </li>  
+                    <li class="flexContainer">        
+                        <span class="flexItem_2_4_4"><img src="img/detalle/rajesh.jpg" alt="rajesh.jpg"/></span>
+                        <span class="flexItem_2_4_4">Kunal Nayyar</span>
+                        <span class="flexItem_2_4_4">Rajesh Koothrappali</span>
+                        <span class="flexItem_2_4_4">242 episodios</span>
+                    </li>  
+                </ul>
+                <p><a href="#">Ver reparto completo</a></p>
+            </div>
+        </div>
+    </main>
+    
+ 	<footer>
+        <div class="flexContainer">
+            <ul class="flexItem_1_2_3" id="menuVertical">
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Aviso legal</a></li>
+            </ul>
+        
+            <form class="flexItem_1_2_3" id="formNewsletter">  
+                <fieldset>
+                <legend>Suscríbete a nuestra newsletter</legend>
+                    <input name="nombre" type="text" placeholder="Nombre" />   
+                    <input name="email" type="email" placeholder="Email" />
+                </fieldset>
+                <input type="submit" id="formNewsletterButton" value=" ENVIAR "/>
+            </form>     
+
+            <ul class="flexItem_1_2_3" id="divSocialMedia">
+                <!-- Iconos RRSS font awesome -->
+                <li><a href="https://www.facebook.com/" class="fa fa-facebook fa-2x" target="_blank"></a></li>
+                <li><a href="https://www.twitter.com/" class="fa fa-twitter fa-2x" target="_blank"></a></li>
+                <li><a href="https://www.youtube.com/" class="fa fa-youtube fa-2x" target="_blank"></a></li>
+                <li><a href="https://www.instagram.com/" class="fa fa-instagram fa-2x" target="_blank"></a></li>
+                <li><a href="https://www.pinterest.com/" class="fa fa-pinterest fa-2x" target="_blank"></a></li>
+            </ul>
+        </div>
+		<div class="pieAutor">
+            &copy;&nbsp;2017-2018&nbsp;- Gaspar González Vara
+        </div>
+	</footer>       
+</body>
+</html>
